@@ -108,9 +108,7 @@ function DashboardPage() {
         </div>
       </aside>
 
-      {/* Add margin to the main content to avoid overlap with the fixed aside */}
       <main className="flex-1 p-6 ml-[15%] sm:ml-[10%] md:ml-[7%] lg:ml-[15%] min-w-0 h-full overflow-y-auto">
-        {/* <Tickets/> */}
         {renderedTab}
       </main>
     </div>

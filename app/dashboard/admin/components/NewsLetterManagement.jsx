@@ -1,4 +1,4 @@
-import MyTable from "@/components/adminTable/MyTable";
+import MyTable from "@/components/newsletterTable/MyTable";
 import supabase from "@/lib/supabaseClient";
 import { TicketX, UsersRound } from "lucide-react";
 import React, { useEffect, useState } from "react";

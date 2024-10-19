@@ -6,12 +6,17 @@ import EventImg from "./components/EventImg";
 import EventDetail from "./components/EventDetail";
 import supabase from "@/lib/supabaseClient";
 import { ColorRing } from "react-loader-spinner";
+import Event from "@/components/events/Event";
+import Link from "next/link";
 function page({ params }) {
   const { id } = params;
   const [event, setEvent] = useState();
+  const [events, setEvents] = useState();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(true);
-
+  const emailTrimmer = (str) => {
+    return str.split("@")[0];
+  };
   const getEvent = async (id) => {
     try {
       const { data, error } = await supabase
@@ -20,12 +25,19 @@ function page({ params }) {
         .eq("id", id)
         .single();
 
+      const { data: allEvents, error: difError } = await supabase
+        .from("events")
+        .select("*")
+        .eq("variant", data?.variant);
+
       if (error) {
         console.log(error.message);
         setError("failed to fetch the event!");
       } else {
         setEvent(data);
+        setEvents(allEvents);
         console.log(data);
+        console.log(allEvents);
       }
     } catch (error) {
       console.log(error);
@@ -40,9 +52,24 @@ function page({ params }) {
     }
   }, [id]);
 
-  const emailTrimmer = (str) => {
-    return str.split("@")[0];
+  const randomlyRendered = (arr) => {
+    return arr
+      ?.sort(() => Math.random() - 0.5) // Shuffle the array
+      .slice(0, 3);
   };
+
+  let randomized = randomlyRendered(events);
+
+  const items = randomized?.map((event, index) => (
+    <Link href={`/event/${event.id}`} key={index}>
+      <Event
+        title={event?.title}
+        address={event?.address}
+        img={event?.image_url}
+        date={event?.date}
+      />
+    </Link>
+  ));
 
   if (loading) {
     return (
@@ -83,13 +110,10 @@ function page({ params }) {
       </div>
 
       <div className="w-full mt-10">
-        <h1 className="text-2xl font-semibold border-b-[1px] border-gray-300 flex items-center gap-2">
-          Comments
-          <span className="bg-red-600 text-white text-xs font-medium rounded-full p-1">
-            24
-          </span>
+        <h1 className="text-2xl font-semibold  flex items-center gap-2">
+          Similar Events
         </h1>
-        <section className="events"></section>
+        <section className="events">{items}</section>
       </div>
     </section>
   );

@@ -1,8 +1,6 @@
 "use client";
 
-import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
-import supabase from "@/lib/supabaseClient"; // Import your Supabase client
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -18,12 +16,12 @@ export const columns = (updateStateInSupabase) => [
     header: "State",
   },
   {
-    accessorKey: "name",
-    header: "Name",
+    accessorKey: "title",
+    header: "Title",
   },
   {
-    accessorKey: "email",
-    header: "Email",
+    accessorKey: "variant",
+    header: "Variant",
   },
   {
     id: "actions",
@@ -41,14 +39,14 @@ export const columns = (updateStateInSupabase) => [
           <DropdownMenuContent align="end" className="bg-white">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => updateStateInSupabase(id, "approved")}
               className="cursor-pointer"
+              onClick={() => updateStateInSupabase(id, "approved")}
             >
               Approve
             </DropdownMenuItem>
             <DropdownMenuItem
-              onClick={() => updateStateInSupabase(id, "cancelled")}
               className="cursor-pointer"
+              onClick={() => updateStateInSupabase(id, "cancelled")}
             >
               Cancel
             </DropdownMenuItem>

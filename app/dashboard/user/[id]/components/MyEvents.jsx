@@ -49,7 +49,11 @@ function MyEvents() {
         />
         <span
           className={`absolute top-2 right-2  text-white text-xs font-medium px-3 py-1 rounded-full ${
-            event?.state === "pending" ? "bg-blue-500" : "bg-green-500"
+            event?.state === "pending"
+              ? "bg-blue-500"
+              : event?.state === "approved"
+              ? "bg-green-500"
+              : "bg-red-500"
           }`}
         >
           {event?.state}
