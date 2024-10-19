@@ -18,9 +18,7 @@ import adminAuth from "@/lib/withAuthAdmin";
 const EventManagement = dynamic(() => import("./components/EventManagement"), {
   ssr: false,
 });
-const UserManagement = dynamic(() => import("./components/UserManagement"), {
-  ssr: false,
-});
+
 const NewsLetterManagement = dynamic(
   () => import("./components/NewsLetterManagement"),
   {
@@ -37,9 +35,6 @@ function DashboardPage() {
   };
   let renderedTab = "";
   switch (activeTab) {
-    case "user":
-      renderedTab = <UserManagement />;
-      break;
     case "event":
       renderedTab = <EventManagement />;
       break;
@@ -73,17 +68,7 @@ function DashboardPage() {
                 Event management
               </span>
             </li>
-            <li
-              className={`p-4 cursor-pointer flex items-center gap-1 font-medium ${
-                activeTab !== "user" && "text-gray-500"
-              }`}
-              onClick={() => setActiveTab("user")}
-            >
-              <Users className="w-5" />
-              <span className="hidden lg:inline md:text-sm lg:text-sm">
-                Manage Users
-              </span>
-            </li>
+
             <li
               className={`p-4 cursor-pointer flex items-center gap-1 font-medium ${
                 activeTab !== "newsletter" && "text-gray-500"
@@ -116,7 +101,7 @@ function DashboardPage() {
       </aside>
 
       {/* Add margin to the main content to avoid overlap with the fixed aside */}
-      <main className="flex-1 p-6 ml-[15%] sm:ml-[10%] md:ml-[7%] lg:ml-[15%] min-w-0">
+      <main className="flex-1 p-6 ml-[15%] sm:ml-[10%] md:ml-[7%] lg:ml-[15%] min-w-0 h-full overflow-y-auto">
         {renderedTab}
       </main>
     </div>

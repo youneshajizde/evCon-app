@@ -4,6 +4,8 @@ import React from 'react'
 
 function EventManagement() {
 
+  
+
   return (
     <main className="flex-1 p-6 ">
     <h2 className="text-3xl font-semibold">Manage the events</h2>

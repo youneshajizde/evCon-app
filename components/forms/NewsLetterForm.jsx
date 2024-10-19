@@ -45,7 +45,7 @@ function NewsLetterForm() {
 
       postNewsLetter(fullInformation);
     } else {
-      console.log("tf just happened");
+      alert("you are not signed in");
     }
   };
   return (

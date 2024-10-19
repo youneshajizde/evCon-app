@@ -16,15 +16,28 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+const getStateColor = (state) => {
+  switch (state) {
+    case "approved":
+      return "bg-green-100 text-green-700";
+    case "pending":
+      return "bg-yellow-100 text-blue-700";
+    case "cancelled":
+      return "bg-red-100 text-red-700";
+    default:
+      return "bg-gray-100 text-gray-700";
+  }
+};
+
 export function DataTable({ columns, data }) {
   const table = useReactTable({
-    data,
+    data: data || [],
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
 
   return (
-    <div className=" border rounded-xl">
+    <div className="border rounded-xl">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -52,7 +65,14 @@ export function DataTable({ columns, data }) {
                 data-state={row.getIsSelected() && "selected"}
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
+                  <TableCell
+                    key={cell.id}
+                    className={
+                      cell.column.id === "state"
+                        ? getStateColor(cell.getValue())
+                        : ""
+                    }
+                  >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
