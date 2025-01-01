@@ -38,8 +38,11 @@ function MyEvents() {
     getCreatedEvents();
   }, [myCreatedEvents]);
 
-  const renderedCreatedEvents = myCreatedEvents?.map((event) => (
-    <div className="ticket border-[3px] rounded-xl w-full flex flex-col relative">
+  const renderedCreatedEvents = myCreatedEvents?.map((event, index) => (
+    <div
+      key={index}
+      className="ticket border-[3px] rounded-xl w-full flex flex-col relative"
+    >
       <div className="relative h-[50%]">
         <Image
           src={event?.image_url === null ? imgPlaceholder : event?.image_url}

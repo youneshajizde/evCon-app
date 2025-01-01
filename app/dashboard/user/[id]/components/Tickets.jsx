@@ -59,8 +59,11 @@ function Tickets() {
     }
   }, [user, userTickets]);
 
-  const renderedTickets = userEvents?.map((event) => (
-    <div className="ticket border-[3px] border-dashed rounded-xl w-full flex flex-col space-y-5 p-5">
+  const renderedTickets = userEvents?.map((event, index) => (
+    <div
+      key={index}
+      className="ticket border-[3px] border-dashed rounded-xl w-full flex flex-col space-y-5 p-5"
+    >
       <h1>Event : {event?.title}</h1>
       <h1 className="flex items-center gap-1">
         Date :<span className="text-sm font-medium">{event?.date}</span>

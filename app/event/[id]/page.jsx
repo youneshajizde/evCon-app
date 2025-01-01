@@ -9,7 +9,7 @@ import { ColorRing } from "react-loader-spinner";
 import Event from "@/components/events/Event";
 import Link from "next/link";
 import Footer from "@/components/Footer";
-function page({ params }) {
+function Page({ params }) {
   const { id } = params;
   const [event, setEvent] = useState();
   const [events, setEvents] = useState();
@@ -124,4 +124,4 @@ function page({ params }) {
   );
 }
 
-export default page;
+export default Page;

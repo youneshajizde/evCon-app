@@ -46,7 +46,7 @@ function Page() {
           <SignInForm className="mt-6" />
 
           <p className="text-sm mt-3 text-center self-start">
-            Don't you have an account?
+            Dont you have an account?
             <Link href={"/sign-up"}>
               <button className="text-blue-800 font-medium ml-2">
                 Sign up
