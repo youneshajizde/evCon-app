@@ -33,7 +33,7 @@ function Page() {
   }, []);
 
   return (
-    <section className="flex h-screen">
+    <section className="flex h-screen main-container">
       <div className="sign-up-section w-full md:w-[50%] flex justify-center items-center">
         <div className="w-[70%] max-w-md py-10 flex flex-col">
           <Link

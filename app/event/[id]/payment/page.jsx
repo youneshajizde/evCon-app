@@ -37,7 +37,7 @@ function Page({ params }) {
   }, []);
 
   return (
-    <section className="bg-gray-100 w-full min-h-screen flex items-center justify-center p-4">
+    <section className="bg-gray-100 w-full min-h-screen flex items-center justify-center p-4 main-container">
       <div className="w-full lg:w-[70%] h-full lg:h-[80%] bg-white rounded-xl flex flex-col lg:flex-row items-center lg:items-start">
         <div className="w-full lg:w-[40%] h-full border-b-[1px] lg:border-b-0 lg:border-r-[1px] border-gray-200 p-4">
           <h1 className="font-semibold flex items-center gap-1">

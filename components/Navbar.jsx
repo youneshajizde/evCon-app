@@ -28,9 +28,9 @@ function Navbar() {
   return (
     <div className="fixed top-0 left-0 w-full h-16 bg-white flex items-center justify-between px-6 z-50">
       {/* Logo */}
-      <h1 className="font-medium flex items-center gap-0">
+      <Link href={"/"} className="font-medium flex items-center gap-0">
         <Image src={logo} width={40} height={40} />
-      </h1>
+      </Link>
 
       {/* Burger Menu for Small Devices */}
       <div className="md:hidden">

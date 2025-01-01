@@ -46,7 +46,7 @@ function DashboardPage() {
   }
 
   return (
-    <div className="flex w-full h-screen overflow-hidden">
+    <div className="flex w-full h-screen overflow-hidden main-container">
       {/* Set the aside to fixed */}
       <aside className="fixed top-0 left-0 w-[15%] sm:w-[10%] md:w-[7%] lg:w-[15%] h-full border-r-[1px] flex flex-col">
         <div className="p-4">

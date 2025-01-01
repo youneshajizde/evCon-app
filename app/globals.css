@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.main-container {
+  max-width: 1400px; /* Adjust as needed */
+  margin: 0 auto;
+   /* Optional, for spacing */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -127,7 +134,7 @@ body {
 }
 
 .otpSlot {
-  @apply w-12 h-12 rounded-lg text-center text-lg border border-gray-300 cursor-pointer;
+  @apply w-8 h-8 rounded-lg text-center text-lg border border-gray-300 cursor-pointer;
 }
 
 .aside-btn {

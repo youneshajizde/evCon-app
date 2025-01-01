@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -19,6 +19,7 @@ import {
 import { useRouter } from "next/navigation";
 import { decryptKey, encryptKey } from "@/lib/utils";
 import Link from "next/link";
+
 function EntryAdmin() {
   const [otp, setOtp] = useState();
   const [error, setError] = useState("");
@@ -26,18 +27,18 @@ function EntryAdmin() {
   const encryptedKey = encryptKey(otp);
   let decryptedKey = decryptKey(encryptedKey);
   let isAdminValidated = "";
+
   const validatePasskey = () => {
     if (decryptedKey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY) {
       router.push("/dashboard/admin");
       localStorage.setItem("adminPasskey", decryptedKey);
       localStorage.removeItem("userInformation");
     } else {
-      setError("The passkey you entered is wrong! try again");
+      setError("The passkey you entered is wrong! Try again.");
     }
   };
-  isAdminValidated = localStorage.getItem("adminPasskey");
 
-  console.log(isAdminValidated);
+  isAdminValidated = localStorage.getItem("adminPasskey");
 
   return (
     <div>
@@ -46,10 +47,18 @@ function EntryAdmin() {
       ) : (
         <AlertDialog>
           <AlertDialogTrigger>Admin</AlertDialogTrigger>
-          <AlertDialogContent className="bg-white rounded-2xl">
+          <AlertDialogContent
+            className="bg-white rounded-2xl p-6 w-[90%] max-w-md mx-auto overflow-hidden"
+            style={{
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              position: "fixed",
+            }}
+          >
             <AlertDialogHeader>
               <AlertDialogTitle className="font-normal text-base text-center">
-                enter the admin passkey
+                Enter the admin passkey
               </AlertDialogTitle>
             </AlertDialogHeader>
             <div className="flex items-center justify-center">
@@ -72,10 +81,13 @@ function EntryAdmin() {
               <p className="text-red-500 mt-4 text-sm text-center">{error}</p>
             )}
             <AlertDialogFooter>
-              <AlertDialogCancel className="bg-black rounded-xl text-white">
+              <AlertDialogCancel className="bg-black rounded-xl text-white px-4 py-2">
                 Cancel
               </AlertDialogCancel>
-              <AlertDialogAction onClick={validatePasskey}>
+              <AlertDialogAction
+                onClick={validatePasskey}
+                className="px-4 py-2 rounded-xl bg-blue-600 text-white"
+              >
                 Continue
               </AlertDialogAction>
             </AlertDialogFooter>

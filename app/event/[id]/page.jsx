@@ -8,6 +8,7 @@ import supabase from "@/lib/supabaseClient";
 import { ColorRing } from "react-loader-spinner";
 import Event from "@/components/events/Event";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 function page({ params }) {
   const { id } = params;
   const [event, setEvent] = useState();
@@ -92,30 +93,34 @@ function page({ params }) {
   }
 
   return (
-    <section className="w-[90%] mx-auto  flex flex-col ">
-      <Navbar />
+    <div className="main-container">
+      {" "}
+      <section className="w-[90%] mx-auto  flex flex-col">
+        <Navbar />
 
-      <div className="flex flex-col lg:flex-row justify-between mt-9 gap-7 h-auto pt-16">
-        <EventImg img={event.image_url} address={event.address} />
+        <div className="flex flex-col lg:flex-row justify-between mt-9 gap-7 h-auto pt-16">
+          <EventImg img={event.image_url} address={event.address} />
 
-        <EventDetail
-          title={event.title}
-          desc={event.description}
-          scheduler={event.scheduler_id}
-          price={event.price}
-          variant={event.variant}
-          schedulerEmail={emailTrimmer(event.scheduler_email)}
-          id={id}
-        />
-      </div>
+          <EventDetail
+            title={event.title}
+            desc={event.description}
+            scheduler={event.scheduler_id}
+            price={event.price}
+            variant={event.variant}
+            schedulerEmail={emailTrimmer(event.scheduler_email)}
+            id={id}
+          />
+        </div>
 
-      <div className="w-full mt-10">
-        <h1 className="text-2xl font-semibold  flex items-center gap-2">
-          Similar Events
-        </h1>
-        <section className="events">{items}</section>
-      </div>
-    </section>
+        <div className="w-full mt-10">
+          <h1 className="text-2xl font-semibold  flex items-center gap-2">
+            Similar Events
+          </h1>
+          <section className="events">{items}</section>
+        </div>
+      </section>
+      <Footer />
+    </div>
   );
 }
 

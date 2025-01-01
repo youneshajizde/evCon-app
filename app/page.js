@@ -8,7 +8,7 @@ import Stats from "@/components/Statistics/Stats";
 
 export default function Home() {
   return (
-    <main>
+    <main className="main-container">
       <div className="w-[90%] mx-auto min-h-screen flex flex-col">
         <Navbar />
         <Header />

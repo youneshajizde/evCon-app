@@ -12,19 +12,19 @@ import supabase from "@/lib/supabaseClient";
 import { useUser } from "@/lib/userContext";
 import SuccessPay from "@/app/event/[id]/payment/component/SuccessPay";
 
-function PaymentForm({ id, price, eventId }) {
+function PaymentForm({ price, eventId }) {
   const { user } = useUser();
   const [open, setOpen] = useState();
   const form = useForm({
     resolver: zodResolver(paymentSchema),
     defaultValues: {
-      name: "",
-      lastname: "",
-      cardNumber: "",
-      expiration: "",
-      cvv: "",
-      postalCode: "",
-      email: "",
+      name: "Jonas", // Default name
+      lastname: "Miscavige", // Default last name
+      cardNumber: "4367642187528634", // Default card number
+      expiration: "09/12", // Default expiration
+      cvv: "123", // Default CVV
+      postalCode: "5325", // Default postal code
+      email: "Jonas@gmail.com", // Default email
     },
   });
 
