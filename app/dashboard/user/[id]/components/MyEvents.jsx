@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import imgPlaceholder from "@/public/assets/imgPlaceholder.png";
+import imgPlaceholder from "@/public/assets/imgplaceholder.png";
 import { Plus } from "lucide-react";
 import CreateEvent from "./CreateEvent";
 import supabase from "@/lib/supabaseClient";
