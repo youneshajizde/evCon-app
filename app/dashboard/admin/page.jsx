@@ -7,7 +7,6 @@ import {
   Mail,
   MessageCircleWarning,
   Slack,
-  Users,
 } from "lucide-react";
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
