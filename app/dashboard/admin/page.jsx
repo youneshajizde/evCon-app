@@ -28,10 +28,14 @@ const NewsLetterManagement = dynamic(
 function DashboardPage() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("event");
+
   const logOut = () => {
-    localStorage.removeItem("adminPasskey");
-    router.push("/sign-up");
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("adminPasskey");
+      router.push("/sign-up");
+    }
   };
+
   let renderedTab = "";
   switch (activeTab) {
     case "event":
