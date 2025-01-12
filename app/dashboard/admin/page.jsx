@@ -29,6 +29,7 @@ function DashboardPage() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("event");
 
+  // Prevent localStorage calls during SSR
   const logOut = () => {
     if (typeof window !== "undefined") {
       localStorage.removeItem("adminPasskey");
