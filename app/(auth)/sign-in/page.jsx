@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import picture from "@/public/assets/45.jpg";
-import { topCountries } from "@/lib/constants";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import SignInForm from "@/components/forms/SignInForm";
