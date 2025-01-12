@@ -12,9 +12,6 @@ import EntryAdmin from "@/components/EntryAdmin";
 import logo from "@/public/assets/logooo.png";
 
 function Page() {
-  const [fetchError, setFetchError] = useState(null);
-  const [events, setEvents] = useState([]);
-
   useEffect(() => {
     const fetchEvents = async () => {
       const { data, error } = await supabase.from("events").select();
@@ -58,8 +55,8 @@ function Page() {
             href={"/"}
             className="flex items-center gap-2 text-2xl font-bold self-start"
           >
-        <Image src={logo} width={50} height={50} />
-        EvCon
+            <Image src={logo} width={50} height={50} />
+            EvCon
           </Link>
           <SignUpForm className="mt-6" />
           <div className="flex items-center justify-between mt-5">

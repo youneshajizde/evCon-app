@@ -13,8 +13,7 @@ import supabaseImg from "@/public/assets/supabaseimg.png";
 import logo from "@/public/assets/logooo.png";
 
 function Page() {
-  const [fetchError, setFetchError] = useState(null);
-  const [events, setEvents] = useState([]);
+ 
 
   useEffect(() => {
     const fetchEvents = async () => {
